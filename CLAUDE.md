@@ -9,15 +9,15 @@ Shorui (書類 - Japanese for "documents") is a resume version control system bu
 ## Commands
 
 ```bash
-bun dev      # Start development server on localhost:3000
-bun run build    # Production build
-bun start    # Start production server
-bun lint     # Run ESLint
+pnpm dev      # Start development server on localhost:3000
+pnpm build    # Production build
+pnpm start    # Start production server
+pnpm lint     # Run ESLint
 ```
 
 ## Tech Stack
 
-- **Bun** as package manager and runtime
+- **pnpm** as package manager (required for v0 compatibility)
 - **Next.js 16** with App Router (no Pages Router)
 - **React 19** with TypeScript
 - **Tailwind CSS 4** with `tw-animate-css` for animations
