@@ -87,10 +87,12 @@ function FieldTextarea({
   );
 }
 
+type SectionKey = (typeof sectionConfig)[number]["key"];
+
 export function ResumeEditor({ data, onChange }: ResumeEditorProps) {
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
-  const [draggedSection, setDraggedSection] = useState<string | null>(null);
-  const [sectionOrder, setSectionOrder] = useState(
+  const [draggedSection, setDraggedSection] = useState<SectionKey | null>(null);
+  const [sectionOrder, setSectionOrder] = useState<SectionKey[]>(
     sectionConfig.map((s) => s.key)
   );
 
@@ -98,11 +100,11 @@ export function ResumeEditor({ data, onChange }: ResumeEditorProps) {
     setCollapsed((prev) => ({ ...prev, [key]: !prev[key] }));
   }
 
-  function handleDragStart(key: string) {
+  function handleDragStart(key: SectionKey) {
     setDraggedSection(key);
   }
 
-  function handleDragOver(e: React.DragEvent, key: string) {
+  function handleDragOver(e: React.DragEvent, key: SectionKey) {
     e.preventDefault();
     if (!draggedSection || draggedSection === key) return;
     const newOrder = [...sectionOrder];
